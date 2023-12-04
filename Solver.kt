@@ -18,7 +18,6 @@ class Solver {
 
     fun secondSolution(): Int {
         var value: Int = 0
-        var iter = 1
         for(line in inputList){
             var firstValue = ""
             var firstIndex = Int.MAX_VALUE
@@ -42,11 +41,7 @@ class Solver {
                         else lastValue = mV
                     }
             }
-            println("----------------------------------")
-            println("iteration: $iter , first: $firstValue, last: $lastValue")
             value += 10 * Integer.parseInt(firstValue) + Integer.parseInt(lastValue)
-            println("to sum: $value")
-            iter++
         }
         return value
     }
