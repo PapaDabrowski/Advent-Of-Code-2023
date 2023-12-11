@@ -1,6 +1,7 @@
 import java.io.File
 class Solver {
     private var inputList = mutableListOf<String>()
+
     fun firstSolution(): Int {
         var value: Int = 0
         for((index, line) in inputList.withIndex())
@@ -23,6 +24,7 @@ class Solver {
         }
         return value
     }
+
     fun secondSolution(): Int {
         var value: Int = 0
         for((index, line) in inputList.withIndex()) {
