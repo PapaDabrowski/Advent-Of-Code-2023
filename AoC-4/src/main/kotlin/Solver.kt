@@ -1,7 +1,9 @@
 import java.io.File
 import kotlin.math.*
+
 class Solver {
     private var inputList = mutableListOf<String>()
+
     fun firstSolution(): Int {
         var value: Int = 0
         for(line in inputList)
@@ -17,6 +19,7 @@ class Solver {
         }
         return value
     }
+
     fun secondSolution(): Int {
         var amountOfCards : MutableList<Int> = MutableList(192) { 1 }
         var value: Int = 0
