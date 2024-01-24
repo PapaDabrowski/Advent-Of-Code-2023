@@ -83,7 +83,10 @@ class Solver {
             }
             seedsNumbers = tempNumbers.chunked(2).toMutableList()
         }
-
+        var temp = Long.MAX_VALUE
+        for(seed in seedsNumbers)
+            if(temp > seed[0]) temp = seed[0]
+        return temp
     }
     fun readFileLineByLine(fileName : String) = File(fileName).forEachLine {
         inputList.add(it)
