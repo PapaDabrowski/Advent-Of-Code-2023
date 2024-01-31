@@ -61,6 +61,7 @@ class Solver {
             }
         }
     }
+
     fun firstSolution(): Int {
         var result : Int = 0
         var sortedDeck = parseData().sortedWith(CompareDeckFirst)
@@ -71,7 +72,6 @@ class Solver {
     fun secondSolution(): Int {
         var result : Int = 0
         var sortedDeck = parseData().sortedWith(CompareDeckSecond)
-        println(sortedDeck)
         for (elem in sortedDeck) result += elem.second * (sortedDeck.indexOf(elem) + 1)
         return result
     }
