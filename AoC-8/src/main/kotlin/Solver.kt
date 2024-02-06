@@ -20,7 +20,6 @@ class Solver {
                 }
                 result++
             }
-
         return result
     }
 
@@ -51,7 +50,17 @@ class Solver {
         return findLCMOfListOfNumbers(startPoints.map { it.toLong() }.toMutableList())
     }
 
-    //ready-made solution from baeldung
+    fun prepareDataCoordinates(): Map<String, List<Pair<String, String>>> {
+        return inputList.subList(2, inputList.size).groupBy({ it.substringBefore(" = ") },
+            { Pair<String,String> (it.substringAfter("(").substringBefore(","), it.substringAfter(", ").substringBefore(")") )})
+    }
+
+    fun readFileLineByLine(fileName: String) = File(fileName).forEachLine {
+        inputList.add(it)
+    }
+
+    //ready-made solutions from baeldung
+    //1.
     fun findLCM(a: Long, b: Long): Long {
         val larger = if (a > b) a else b
         val maxLcm = a * b
@@ -65,20 +74,12 @@ class Solver {
         return maxLcm
     }
 
+    //2.
     fun findLCMOfListOfNumbers(numbers: List<Long>): Long {
         var result = numbers[0]
         for (i in 1 until numbers.size) {
             result = findLCM(result, numbers[i])
         }
         return result
-    }
-
-    fun prepareDataCoordinates(): Map<String, List<Pair<String, String>>> {
-        return inputList.subList(2, inputList.size).groupBy({ it.substringBefore(" = ") },
-            { Pair<String,String> (it.substringAfter("(").substringBefore(","), it.substringAfter(", ").substringBefore(")") )})
-    }
-
-    fun readFileLineByLine(fileName: String) = File(fileName).forEachLine {
-        inputList.add(it)
     }
 }
